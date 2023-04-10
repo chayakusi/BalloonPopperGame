@@ -12,6 +12,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="144dp"
         android:ems="10"
+        android:maxLength="25"
         android:hint="Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
@@ -39,7 +40,7 @@
         android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Date Time"
-        android:inputType="textPersonName"
+        android:inputType="datetime"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextScore" />
