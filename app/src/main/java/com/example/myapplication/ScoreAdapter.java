@@ -29,6 +29,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ScoreViewHolder holder, int position) {
         Score score = scores.get(position);
+        holder.rankView.setText(String.valueOf(score.getRank()));
         holder.nameView.setText(score.getName());
         holder.scoreView.setText(String.valueOf(score.getScore()));
         holder.dateView.setText(date_format.format(score.getDateTime()));
