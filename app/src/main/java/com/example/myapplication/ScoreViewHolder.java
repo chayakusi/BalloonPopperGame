@@ -1,3 +1,8 @@
+/*
+* HighScores Android App - By Chaya Kusi for CS6326 Assignment 4 ,starting on April 4, 2023.
+* NET ID: CXK210030
+ScoreViewHolder class to hold and display the views of each item in the RecyclerView.
+ */
 package com.example.myapplication;
 
 import android.view.View;

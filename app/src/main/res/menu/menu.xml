@@ -4,5 +4,5 @@
     <item
         android:id="@+id/AddNew"
         android:title="ADD SCORE"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 </menu>

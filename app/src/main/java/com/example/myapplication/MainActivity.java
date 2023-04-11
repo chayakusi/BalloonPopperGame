@@ -1,3 +1,11 @@
+/*
+* HighScores Android App - By Chaya Kusi for CS6326 Assignment 4 ,starting on April 4, 2023.
+* NET ID: CXK210030
+* It is an app that tracks high scores of a game.
+* The program shows a list of top 20 scores along with the rank, name and date.
+* Users can add a new score using the ADD SCORE button on the ActionBar, where the name, score, and date fields will be entered.
+* */
+
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +18,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -25,17 +31,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Read scores from the file
         List<Score> scores;
         try {
             scores = FileIO.readScores(this);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        // Set scores to the recyclerView
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new ScoreAdapter(getApplicationContext(), scores));
     }
 
+    // Inflate the menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -43,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // Pass an intent and start a new activity on clicking ADD SCORE button item on the Menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -54,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Function to handle after the Save event from the new activity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -74,8 +86,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // Update the UI to show the new score in the list
-//            adapter.setScores(scores);
-            List<Score> scores = null;
+            List<Score> scores;
             try {
                 scores = FileIO.readScores(getApplicationContext());
             } catch (IOException e) {

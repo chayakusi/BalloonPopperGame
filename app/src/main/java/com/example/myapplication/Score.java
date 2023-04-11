@@ -1,3 +1,8 @@
+/*
+* HighScores Android App - By Chaya Kusi for CS6326 Assignment 4 ,starting on April 4, 2023.
+* NET ID: CXK210030
+Score class with rank, name, score, and dateTime
+ */
 package com.example.myapplication;
 
 import java.util.Comparator;
@@ -36,14 +41,11 @@ public class Score {
     }
 
     public static Comparator<Score> getComparator() {
-        return new Comparator<Score>() {
-            @Override
-            public int compare(Score s1, Score s2) {
-                if(s1.getScore() != s2.getScore()) {
-                    return Integer.compare(s2.getScore(), s1.getScore());
-                }
-                return s2.getDateTime().compareTo(s1.getDateTime());
+        return (s1, s2) -> {
+            if(s1.getScore() != s2.getScore()) {
+                return Integer.compare(s2.getScore(), s1.getScore());
             }
+            return s2.getDateTime().compareTo(s1.getDateTime());
         };
     }
 }

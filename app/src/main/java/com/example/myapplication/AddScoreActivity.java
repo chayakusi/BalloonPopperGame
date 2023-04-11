@@ -1,5 +1,9 @@
 package com.example.myapplication;
-
+/*
+* HighScores Android App - By Chaya Kusi for CS6326 Assignment 4 ,starting on April 4, 2023.
+* NET ID: CXK210030
+* AddScoreActivity Class for Adding Score
+ */
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,7 +41,7 @@ public class AddScoreActivity extends AppCompatActivity {
         // Find views
         editTextName = findViewById(R.id.editTextName);
         editTextScore = findViewById(R.id.editTextScore);
-        editTextDate = findViewById(R.id.editTextDate);
+        editTextDate = dateEditText;
         buttonSave = findViewById(R.id.saveBtn);
 
         // Set up text change listeners
